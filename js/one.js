@@ -1235,7 +1235,7 @@ $j.fn.neonTheme.custom = {
     m_search: true, // ativa o responsivo da Busca
     m_filters: true, // ativa o responsivo dos Filtros do Catálogo
     m_myaccount: true, // ativa o responsivo da Minha Conta
-    m_mycart: true, // ativa o responsivo do Meu Carrinho
+    m_mycart: false, // ativa o responsivo do Meu Carrinho
     m_parcelamento: true, // ativa o responsivo do parcelamento na página de produto
     m_frete: true, // ativa o responsivo do cálculo de frete na página do produto
     m_produto: true, // ativa o responsivo de cada bloco da página de produto
@@ -1345,13 +1345,15 @@ function scrollTop() {
 
 function categoriesTitle() {
     const items = Array.from(
-        document.querySelectorAll('.header-container .categories .li--0')
+        document.querySelectorAll(
+            '.header-container .categories__all .all-li--0'
+        )
     )
     items.forEach((item) => {
         const title =
-            item.querySelector('.a--0') &&
-            item.querySelector('.a--0').textContent.trim()
-        const child = item.querySelector('.box--1')
+            item.querySelector('.all-a--0') &&
+            item.querySelector('.all-a--0').textContent.trim()
+        const child = item.querySelector('.all-ul--1')
 
         child.setAttribute('data-title', title)
     })
@@ -1425,6 +1427,46 @@ function createRootVariableRGB() {
     })
 }
 
+function adjustMenuPrincipal($) {
+    const menu = $('.header-container .categories .ul--0')
+
+    if (menu.length) {
+        const customMenu = $('.header-container .mymenu .ul--0')
+
+        if (customMenu) {
+            const li = $('<li>').addClass('categories__custom')
+            menu.append(li.append(customMenu))
+        }
+    }
+}
+
+function autoSizeMenuCuston($) {
+    const adjust = () => {
+        const container = $('.categories__custom')
+        const size = container.outerWidth()
+        let sizeAll = 0
+
+        $('.li--0', container).removeClass('categories--remove')
+
+        $('.li--0', container).each(function () {
+            const sizeLi = $(this).outerWidth()
+            sizeAll += sizeLi
+
+            if (sizeAll > size) {
+                $(this).addClass('categories--remove')
+            }
+
+            console.log(sizeAll, sizeLi, size)
+        })
+    }
+
+    adjust()
+
+    $(window).resize(function () {
+        adjust()
+    })
+}
+
 $j(document)
     .ready(function ($) {
         // document.ready
@@ -1433,8 +1475,15 @@ $j(document)
 
         // Scrolling
         scrollTop()
+
         // Categories title
         categoriesTitle()
+
+        // Ajuste menu principal
+        adjustMenuPrincipal($)
+
+        // auto ajuste menu header
+        autoSizeMenuCuston($)
 
         // Menu Categories
         $('.categories .parent').click(function (event) {

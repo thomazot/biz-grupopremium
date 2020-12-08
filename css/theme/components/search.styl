@@ -1,0 +1,62 @@
+.search
+    .header &
+        flex: 0 1 515px
+        margin: 0 auto
+
+        @media media-max-lg
+            margin-left: (gap / 2)
+
+        @media media-max-sm
+            flex: 0 1 48px
+            margin: 0 0 0 auto
+
+        &__input
+            border: solid 1px var(--color-border)
+            background: var(--color-gray)
+            box-shadow: none
+            color: var(--primary)
+            font-weight: regular
+            font-size: 12px
+
+            &::placeholder
+                color: var(--color-text-gray)
+                font-weight: bold
+                font-style: italic
+
+            &:focus::placeholder
+                color: transparent
+
+        &__button
+            background: var(--secundary)
+
+            @media media-max-sm
+                display: flex
+                justify-content: center
+                align-items: center
+                padding: 0
+                width: 48px
+                height: 48px
+                background: none
+                color: var(--primary)
+
+            .ico
+                width: 17px
+                height: 17px
+                fill: currentColor
+
+                @media media-max-sm
+                    width: 24px
+                    height: 24px
+
+        &.on
+            .search
+                &__input
+                    @media media-max-sm
+                        height: 68px
+
+                &__hide
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    height: 65px
+                    line-height: 1

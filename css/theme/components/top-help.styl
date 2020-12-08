@@ -1,0 +1,36 @@
+.top-help
+    flex: 0 1 124px
+    box-sizing: content-box
+    margin: 0 auto
+    min-width: 48px
+
+    @media media-min-lg
+        flex: 0 0 124px
+
+    @media media-max-sm
+        flex: 0 0 48px
+        margin: 0
+
+    &__header
+        font-weight: bold
+        font-size: 13px
+
+        a
+            display: flex
+            justify-content: center
+            align-items: center
+            min-width: 48px
+            min-height: 48px
+            line-height: 1.2
+
+        span
+            flex: 0 0 100px
+            margin-left: 10px
+
+            @media media-max-lg
+                display: none
+
+        .ico
+            flex: 0 0 24px
+            width: 24px
+            height: 24px
