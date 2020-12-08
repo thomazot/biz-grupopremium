@@ -1353,7 +1353,7 @@ function categoriesTitle() {
         const title =
             item.querySelector('.all-a--0') &&
             item.querySelector('.all-a--0').textContent.trim()
-        const child = item.querySelector('.all-ul--1')
+        const child = item.querySelector('.ul--1')
 
         child.setAttribute('data-title', title)
     })
@@ -1428,6 +1428,22 @@ function createRootVariableRGB() {
 }
 
 function adjustMenuPrincipal($) {
+    if ($('.header-container .categories')) {
+        const liAll = $(
+            '.header-container .categories .ul--0:nth-child(2) .li--0:not(.categories__all)'
+        )
+            .removeClass('li--0')
+            .addClass('all-li--0')
+
+        if (liAll.length) {
+            liAll.find('.a--0').removeClass('a--0').addClass('all-a--0')
+            liAll.find('.a--1').removeClass('a--1').addClass('all-a--1')
+            liAll.find('.box--1').removeClass('box--1').addClass('box--2')
+            $('.header-container .categories .all-li--0').remove()
+            $('.header-container .categories .all-ul--0').append(liAll)
+        }
+    }
+
     const menu = $('.header-container .categories .ul--0')
 
     if (menu.length) {
@@ -1455,8 +1471,6 @@ function autoSizeMenuCuston($) {
             if (sizeAll > size) {
                 $(this).addClass('categories--remove')
             }
-
-            console.log(sizeAll, sizeLi, size)
         })
     }
 
@@ -1476,11 +1490,11 @@ $j(document)
         // Scrolling
         scrollTop()
 
-        // Categories title
-        categoriesTitle()
-
         // Ajuste menu principal
         adjustMenuPrincipal($)
+
+        // Categories title
+        categoriesTitle()
 
         // auto ajuste menu header
         autoSizeMenuCuston($)
