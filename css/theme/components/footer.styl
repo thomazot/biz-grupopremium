@@ -1,0 +1,72 @@
+.footer
+    &-container
+        background: var(--color-gray)
+
+        @media media-max-lg
+            text-align: center
+
+            .flex--a-center
+                justify-content: center
+
+    &__title
+        margin-bottom: 20px
+        color: var(--primary)
+        text-transform: uppercase
+        font-weight: bold
+        font-size: 18px
+
+    &__box
+        margin-bottom: 20px
+
+        @media media-min-lg
+            flex: 1
+            min-width: 0
+
+            &:last-child
+                flex: 0 1 135px
+
+    &__row
+        padding: 50px 0
+
+        @media media-min-lg
+            display: flex
+            justify-content: space-between
+            align-items: flex-start
+            gap: gap
+
+    &__copyright
+        border-top: solid 1px var(--color-border)
+        color: var(--color-text-gray)
+        text-align: center
+        font-weight: regular
+        font-size: 11px
+
+        @media media-min-lg
+            display: flex
+            justify-content: space-between
+            align-items: center
+
+        > div
+            padding: 20px 0
+
+    .socials
+        &__svg
+            height: 15px
+
+    .certs
+        &__list
+            display: block
+
+        &__img
+            max-width: 110px
+            object-fit: contain
+
+    .pays
+        &__list
+            margin-right: -2px
+            margin-left: -2px
+
+        &__item
+            padding-right: 2px
+            padding-bottom: 2px
+            padding-left: 2px

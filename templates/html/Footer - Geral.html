@@ -1,0 +1,35 @@
+<div class="footer__row">
+    <div class="footer__box">
+        <h3 class="footer__title">Atendimento</h3>
+        <div class="footer__content">
+            {{block type="menubuilder/output" identifier="footer-helps"}}
+        </div>
+    </div>
+    <div class="footer__box">
+        <h3 class="footer__title">Institucional</h3>
+        <div class="footer__content">
+            {{block type="menubuilder/output" identifier="footer-institucional"}}
+        </div>
+    </div>
+    <div class="footer__box">
+        <h3 class="footer__title">Segurança</h3>
+        <div class="footer__content">
+            {{widget type="interface/widget_seals" template="interface/widgets/seals.phtml" identificador="selos_footer" title="" seals="all"}}
+        </div>
+    </div>
+    <div class="footer__box">
+        <h3 class="footer__title">Pagamento</h3>
+        <div class="footer__content">
+            {{widget type="interface/widget_pagtos" template="interface/widgets/pagtos.phtml" title="" identificador="pagtos_footer" pagtos="all"}}
+        </div>
+    </div>
+</div>
+
+<div class="footer__copyright">
+    {{widget type="interface/widget_social" template="interface/widgets/social.phtml" identificador="socials" redes="all"}}
+    <div class="footer__text">
+        <p>© Grupo Premium - CNPJ: 00.000.000/0000-00</p>
+        <p>Todos os Direitos Reservados.</p>
+    </div>
+    <div></div>
+</div>

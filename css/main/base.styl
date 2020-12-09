@@ -800,7 +800,7 @@ form.searchautocomplete
     display: flex
     flex: 1 1 100%
     flex-flow: column nowrap
-    justify-content: space-between
+    justify-content: flex-start
     width: 100%
     background: #fff
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .1)
@@ -835,7 +835,6 @@ form.searchautocomplete
     display: block
 
 .products__list .price-box > span:not(:last-child)
-    display: block
     margin-bottom: .5rem
 
 .products .esgotado
@@ -1793,10 +1792,6 @@ form.searchautocomplete
 .brands__item .name:not(:only-child)
     display: none
 
-.brands--carrossel .brands__list
-    margin: 0 -.5rem
-    padding: 0 .5rem
-
 .brands .owl-wrapper-outer
     border-right: 1px solid rgba(0, 0, 0, .1)
 
@@ -2419,9 +2414,10 @@ body.ie .owl-prev:before, body.ie .owl-next:before
 .owl-next
     left: 100%
 
-.owl-next:before, .owl-page span
+.owl-page span
     background: color1_bg
 
+.owl-next:before
     icon('\f054')
 
 /* Feed RSS */
@@ -2792,63 +2788,6 @@ body.ie .owl-prev:before, body.ie .owl-next:before
 
 .header .search
     flex: 1 1 auto
-
-/* Footer */
-.footer-container
-    margin: 4rem 0 0
-    padding: 1rem 0
-    background: linear-gradient(color1_bg, color1_bg_hover)
-
-.footer
-    color: color1_font
-    font-size: .8rem
-
-.footer .newsletter
-    margin-top: -1rem
-    padding: 1rem 0
-    border-bottom: 1px solid rgba(0, 0, 0, 0)
-    background: rgba(0, 0, 0, .2)
-    box-shadow: -980px 0 0 rgba(0, 0, 0, .2), 980px 0 0 rgba(0, 0, 0, .2)
-    font-size: 1rem
-
-.footer .newsletter .title
-    color: color1_font
-    text-align: center
-
-.footer .flex .title
-    color: color1_font
-    font-size: 1rem
-    opacity: .5
-
-.footer .std
-    color: color1_font
-
-.footer .tele
-    font-size: 2rem
-
-.footer .email
-    padding-top: .5rem
-    font-weight: 600
-
-.footer a
-    color: color1_font
-
-.footer a:hover
-    color: color1_font_hover
-
-.footer .myaccount__header a
-    margin-left: auto
-    background: #fff !important
-    box-shadow: 0 0 0 4px #fff
-
-.footer .myaccount__header a:hover
-    box-shadow: 0 0 0 4px #fff, 0 1rem 1rem -.5rem rgba(0, 0, 0, .3)
-
-.footer .myaccount__content
-    display: none !important
-
-.footer .socials
-    padding-top: 1rem
 
 /* Catálogo */
 .category-description
@@ -9154,44 +9093,6 @@ table .change-product-link:hover
     .logo .has-m-img .m-img
         display: block !important
 
-/* ------ Coleção de Produtos */
-/* ~568px */
-@media (max-width: 35.5rem)
-    .products__item
-        flex: 1 1 100%
-
-    .products__case
-        display: flex
-        flex-flow: row nowrap
-
-    .product__header
-        flex: 0 0 40%
-        padding: 1rem 0 1rem 1rem
-
-    .product__main
-        display: block
-
-    .product__name
-        position: relative
-        overflow: hidden
-        height: 2.4rem
-        word-break: break-word
-        font-size: 1rem
-        line-height: 1.2rem
-
-    .product__name:after
-        position: absolute
-        right: 0
-        bottom: 0
-        display: block
-        width: 25%
-        height: 1.2rem
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0), #fff)
-        content: ''
-
-    .products .configurable-swatch-list, .products .price-box-avista, .products .price-box-parcelado
-        display: none
-
 /* ------ Menu de Categorias */
 /* ~1528px */
 @media (max-width: 95.5rem)
@@ -9725,26 +9626,6 @@ table .change-product-link:hover
     .header .myaccount__header a
         width: 2rem
         height: 2rem
-
-/* ------ Footer */
-/* ~1408px */
-@media (max-width: 88rem)
-    .footer .newsletter
-        margin-right: -1rem
-        margin-left: -1rem
-        padding-right: 1rem
-        padding-left: 1rem
-
-/* ~768px */
-@media (max-width: 48rem)
-    .footer__payments, .footer__shipments, .footer__certificates
-        flex: 1 1 100%
-
-    .pays__list, .ships__list, .certs__list
-        justify-content: center
-
-    .footer .pays__title, .footer .ships__title, .footer .certs__title
-        display: none
 
 /* ------ Catálogo */
 /* ~768px */

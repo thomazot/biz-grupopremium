@@ -2,3 +2,26 @@
     .catalog-category-view &, .catalogsearch-result-index &
         @media media-max-lg
             position: static
+
+.col-main
+    padding: 0
+
+.main
+    container()
+
+    display: flex
+    gap: gap
+
+    .col-left, .col-right
+        flex: 0 1 280px
+
+    .col-left, .col-right, .col-main
+        margin: 0
+        padding: 0
+        max-width: none
+
+    .col-main
+        flex: 1
+        margin: 0
+        padding: 0
+        min-width: 0

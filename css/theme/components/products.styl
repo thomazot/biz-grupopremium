@@ -1,0 +1,54 @@
+.products
+    padding-bottom: 30px
+
+    .owl-pagination
+        display: none
+
+    &__title
+        margin: (gap / 2) 0
+        padding: (gap / 2) 0
+        border-bottom: solid 1px var(--color-border)
+        color: var(--primary)
+        text-transform: uppercase
+        font-weight: bold
+        font-size: 24px
+
+    &__header
+        margin-bottom: 20px
+        border-bottom: solid 1px var(--color-border)
+
+    &__case
+        padding: (gap / 2)
+        box-shadow: none
+
+    &__name, &__out
+        display: block
+        margin-bottom: 20px
+        color: var(--color-text-gray)
+        font-weight: regular
+        font-size: 14px
+
+    &__alert
+        display: flex
+        justify-content: center
+        align-items: center
+        height: 40px
+        border-radius: var(--radius)
+        background: var(--color-button-gray)
+        color: white
+        text-transform: uppercase
+        font-weight: regular
+        font-size: 14px
+
+    &__login
+        max-width: 210px
+        color: var(--primary-hover)
+        font-weight: regular
+        font-size: 15px
+
+        .user-logged &
+            display: none
+
+        a
+            color: currentColor
+            text-decoration: underline
