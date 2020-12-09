@@ -11700,6 +11700,7 @@ table .change-product-link:hover {
   --color-border: #ebebeb;
   --color-text-gray: #595959;
   --color-button-gray: #c2c2c2;
+  --color-text: #959595;
   --radius: 3px;
 }
 /*
@@ -11744,7 +11745,6 @@ body {
   color: #f7be07;
 }
 .header,
-.main-container,
 .footer {
   margin-right: auto;
   margin-left: auto;
@@ -11756,6 +11756,9 @@ body {
 }
 .wrapper svg {
   fill: currentColor;
+}
+.ias-noneleft {
+  display: none !important;
 }
 
 .abouts {
@@ -12014,6 +12017,23 @@ body {
 .brands__item a,
 .brands .owl-wrapper-outer {
   border: 0;
+}
+
+.breadcrumb {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: calc(100% - 32px);
+  width: 71.38rem;
+}
+.breadcrumb__home .breadcrumb__link:before {
+  display: none;
+}
+.breadcrumb__link,
+.breadcrumb__last,
+.breadcrumb__sep {
+  color: var(--color-text-gray);
+  font-weight: 400;
+  font-size: 0.88rem;
 }
 
 .categories__show {
@@ -12280,7 +12300,74 @@ body {
   }
 }
 
+@media (min-width: 993px) {
+  .filters > .title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 0;
+    padding: 0 1rem;
+    min-height: 40px;
+    background: var(--color-gray);
+    box-shadow: 0 0 0 1px var(--color-border);
+    color: var(--primary);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.81rem;
+  }
+}
+@media (min-width: 993px) {
+  .filters__filter {
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 0 0 1px var(--color-border);
+  }
+}
+@media (min-width: 993px) {
+  .filters__filter:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+.filters__filter .a--0,
+.filters__filter .a--0current,
+.filters__filter .count,
+.filters__filter .link {
+  font-weight: 400;
+  font-size: 0.81rem;
+}
+@media (max-width: 992px) {
+  .filters__filter .a--0,
+  .filters__filter .a--0current,
+  .filters__filter .count,
+  .filters__filter .link {
+    color: var(--primary-contrast);
+  }
+}
+@media (min-width: 993px) {
+  .filters__filter .a--0,
+  .filters__filter .a--0current,
+  .filters__filter .count,
+  .filters__filter .link {
+    color: var(--color-text-gray);
+  }
+}
+.filters__name {
+  font-weight: 700;
+  font-size: 1rem;
+}
+@media (max-width: 992px) {
+  .filters__name {
+    color: var(--primary-contrast);
+  }
+}
+@media (min-width: 993px) {
+  .filters__name {
+    color: var(--primary);
+  }
+}
+
 .footer-container {
+  margin-top: 3.13rem;
   background: var(--color-gray);
 }
 @media (max-width: 992px) {
@@ -12377,6 +12464,7 @@ body {
 
 .header {
   padding: 0.63rem 0;
+  min-width: 0;
 }
 @media (min-width: 993px) {
   .header {
@@ -12745,11 +12833,78 @@ body {
   line-height: 1;
 }
 
+.toolbar .limiter {
+  display: none;
+}
+.toolbar .amount {
+  opacity: 1;
+}
+.toolbar .amount,
+.toolbar .amount span {
+  color: var(--color-text);
+  font-weight: 400;
+  font-size: 0.81rem;
+}
+.toolbar .sort-by {
+  order: -1;
+  color: var(--color-text);
+  font-weight: 400;
+  font-size: 0.81rem;
+}
+.toolbar .sort-by:before {
+  margin-right: 0.31rem;
+  content: 'Classificar por: ';
+}
+.toolbar .sort-by label {
+  display: none;
+}
+.toolbar .sort-by select {
+  border: solid 1px var(--color-border);
+  box-shadow: none;
+  color: var(--color-text);
+  font-weight: 400;
+  font-size: 0.81rem;
+}
+.toolbar .view-mode {
+  margin-left: 1rem;
+}
+.toolbar .view-mode svg {
+  margin-right: 0.31rem;
+  width: 0.94rem;
+  height: 0.75rem;
+  opacity: 1;
+  fill: currentColor !important;
+}
+.toolbar .view-mode .grid,
+.toolbar .view-mode .list {
+  color: var(--color-text);
+}
+.toolbar .view-mode .grid:after,
+.toolbar .view-mode .list:after {
+  font-weight: 400;
+  font-size: 0.81rem;
+}
+.toolbar .view-mode strong.grid,
+.toolbar .view-mode strong.list {
+  color: var(--primary);
+}
+.toolbar .view-mode .grid:after {
+  content: 'Grid';
+}
+.toolbar .view-mode .list:after {
+  content: 'Lista';
+}
+
 .top-help {
   flex: 0 1 124px;
   box-sizing: content-box;
   margin: 0 auto;
   min-width: 48px;
+}
+@media (max-width: 568px) {
+  .top-help {
+    display: none;
+  }
 }
 @media (min-width: 993px) {
   .top-help {
@@ -12787,4 +12942,9 @@ body {
   flex: 0 0 24px;
   width: 1.5rem;
   height: 1.5rem;
+}
+
+.category-title,
+.category-description {
+  display: none !important;
 }
