@@ -11744,7 +11744,6 @@ body {
   color: #f7be07;
 }
 .header,
-.main-container,
 .footer {
   margin-right: auto;
   margin-left: auto;
@@ -12281,6 +12280,7 @@ body {
 }
 
 .footer-container {
+  margin-top: 3.13rem;
   background: var(--color-gray);
 }
 @media (max-width: 992px) {
