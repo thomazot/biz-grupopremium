@@ -1,0 +1,43 @@
+.loginout
+    .head &
+        color: var(--primary)
+        font-weight: regular
+        font-size: 13px
+
+    .header &
+        flex: 0 1 140px
+        box-sizing: content-box
+        margin: 0 auto
+        min-width: 48px
+        color: var(--primary)
+        font-weight: bold
+        font-size: 13px
+
+        @media media-max-sm
+            flex: 0 0 48px
+            margin: 0
+
+        .ico
+            flex: 0 0 22px
+            width: 22px
+            height: 24px
+            fill: currentColor
+
+        &__content
+            display: flex
+            justify-content: center
+            align-items: center
+            min-height: 48px
+
+        &__text
+            margin-left: 10px
+            line-height: 1.2
+
+            @media media-max-lg
+                display: none
+
+            a
+                color: var(--secundary)
+
+                &[href*=logout]
+                    color: var(--primary)

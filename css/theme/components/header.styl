@@ -1,4 +1,24 @@
 .header
+    padding: 10px 0
+
+    @media media-min-lg
+        z-index: 20
+        background: white
+
+        shadowBorder()
+
+    @media media-max-lg
+        margin-bottom: 0 !important
+        padding-right: (gap / 2)
+
     &-container
         position: sticky
         top: 0
+        margin-top: -(gap / 2)
+        box-shadow: none
+
+        @media media-min-lg
+            margin-bottom: 74px !important
+
+            .scrolling:not(.scrolling--up) &
+                box-shadow: 0 0 10px rgba(0, 0, 0, .2)

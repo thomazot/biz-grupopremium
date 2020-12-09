@@ -1,0 +1,64 @@
+.abouts
+    container()
+
+    &__container
+        margin: -(gap / 2)
+        color: var(--color-text-gray)
+        font-weight: regular
+        font-size: 12px
+
+        @media media-min-lg
+            display: flex
+            align-items: stretch
+
+    &__title, .std &__title
+        position: relative
+        margin-bottom: 24px
+        padding: 24px 0
+        color: var(--primary)
+        font-size: 33px
+
+        &:after
+            position: absolute
+            bottom: 0
+            left: 0
+            width: 44px
+            height: 3px
+            background: var(--secundary)
+            content: ''
+
+    &__content, &__news
+        margin: (gap / 2)
+        padding: (gap / 2)
+        border: solid 1px var(--color-border)
+
+        @media media-min-lg
+            flex: 1
+            padding: 10px 55px 40px
+            min-width: 0
+
+    &__text
+        line-height: 2
+
+    .newsletter
+        .input-text
+            height: 36px
+            box-shadow: none
+
+        &__form
+            margin: 0
+
+        &__email
+            flex: 0 0 100%
+
+        &__btn
+            display: flex
+            justify-content: center
+            align-items: center
+            margin-top: 10px
+            padding: 0
+            width: 118px
+            height: 36px
+            background: var(--primary-hover)
+            text-transform: uppercase
+            font-size: 15px

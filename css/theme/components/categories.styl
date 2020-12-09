@@ -1,9 +1,37 @@
-@media media-max-lg
-    .categories
+.categories
+    &__show
+        order: -1
+        background: var(--primary-contrast)
+        color: var(--primary)
+
+    @media media-max-lg
+        .categories__all
+            > .a--0
+                display: none
+
+        &__products, &__block
+            display: none
+
+        &__custom
+            display: block
+
+            .a--0
+                text-align: left
+
+            .li--0
+                box-shadow: inset 0 1px 0 rgba(0, 0, 0, .1)
+
+        .ul--0
+            display: block
+
+        .all-a--0, .a--0
+            font-weight: regular
+            font-size: 14px
+
         .parent
             position: relative
 
-            > ul
+            .box--2
                 display: none
 
             &:after
@@ -27,7 +55,8 @@
                 align-items: center
                 width: 48px
                 height: 48px
-                background: var(--primary-contrast)
+                background: none
+                color: var(--primary-contrast)
                 font-size: 20px
                 transition: all .2s ease
 
@@ -35,28 +64,191 @@
                 &:after
                     transform: rotate(90deg)
 
-                > ul
+                .box--2
                     display: block
 
         .all-li--0
             padding-bottom: 0
 
-@media media-min-lg
-    .categories
+    @media media-min-lg
+        position: absolute
+        top: 100%
+        left: 0
         flex: 1
         margin-bottom: 0 !important
+        padding: 10px 0 20px
         min-width: 0
+        width: 100%
         background: none
+        background: white
+        transition: all .2s ease-in-out
+
+        .scrolling:not(.scrolling--up) &
+            transform: translateY(-74px)
 
         .a--0
+            background: none
             color: var(--primary)
-            text-transform: uppercase
             white-space: nowrap
-            font-weight: semibold
+            font-weight: regular
             font-size: 14px
 
-        .li--0
-            order: 1
+        .ul--0:nth-child(2)
+            container()
+
+            > .li--0:not(.categories__all)
+                display: none
+
+        &--remove
+            display: none
+
+        &__products
+            margin: 0
+            border: 0
+            border-left: solid 1px var(--color-border)
+            background: white
+
+        &__custom
+            flex: 1
+            overflow: hidden
+            min-width: 0
+
+            .ul--0
+                justify-content: space-between
+
+            .li--0
+                flex: 0 0 auto
+
+                &:hover
+                    .a--0
+                        background: none
+                        color: var(--secundary)
 
         &__all
-            order: 2
+            position: relative
+            z-index: 10
+            margin-right: (gap / 2)
+
+            .a--0
+                position: relative
+                z-index: 30
+                padding: 0
+                width: 260px
+                border-radius: var(--radius)
+                background: var(--primary-hover)
+                color: var(--primary-hover-contrast)
+                text-transform: uppercase
+                font-weight: bold
+                font-size: 13px
+
+                > span
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    padding: 0 (gap / 2)
+                    width: 100%
+
+                    span
+                        flex: 1
+                        min-width: 0
+
+                .z-down
+                    width: 11px
+                    height: 7px
+
+                .z-menu
+                    width: 14px
+                    height: 11px
+
+            .box--1
+                visibility: hidden
+                padding: 0
+                width: 100%
+                box-shadow: 0 0 0 1px var(--color-border)
+                opacity: 0
+                transition: all .2s ease-in-out
+                transition-delay: .2s
+                transform: translateY(-10px)
+
+                svg
+                    fill: var(--primary-hover)
+
+            &:hover
+                .box--1
+                    visibility: visible
+                    opacity: 1
+                    transform: translateY(0)
+
+            .all-ul--0
+                display: block
+                padding: 0
+
+            .box--2
+                --color-gray: #fafafa
+
+                &
+                    position: absolute
+                    top: -44px
+                    left: 100%
+                    display: flex
+                    visibility: hidden
+                    min-width: 100%
+                    min-height: 100%
+                    background: var(--color-gray)
+                    box-shadow: 0 0 0 1px var(--color-border)
+                    opacity: 0
+                    transition: all .2s ease-in-out
+                    transition-delay: .3s
+                    transform: translateX(-10px)
+
+            .ul--1
+                &:before
+                    display: flex
+                    justify-content: flex-start
+                    align-items: center
+                    padding: 0 (gap / 2)
+                    width: 100%
+                    height: 44px
+                    border-bottom: solid 1px var(--color-border)
+                    background: #f3f3f3
+                    color: var(--primary-hover)
+                    content: attr(data-title)
+                    text-transform: uppercase
+                    font-weight: bold
+                    font-size: 14px
+
+            .all-li--0
+                margin: 0
+                padding: 0
+                max-width: none
+
+                &:hover
+                    .all-a--0
+                        background: var(--color-gray)
+                        color: var(--primary-hover)
+
+                    .box--2
+                        visibility: visible
+                        opacity: 1
+                        transform: translateX(0)
+
+            .all-a--0
+                overflow: hidden
+                padding: 6px 10px
+                background: white
+                box-shadow: 0 -1px 0 var(--color-border)
+                font-weight: regular
+                font-size: 13px
+                line-height: 20px
+
+            .all-a--1
+                padding: 5px 10px
+                border-bottom: solid 1px var(--color-border)
+                font-weight: regular
+                font-size: 13px
+                line-height: 20px
+
+                &:hover
+                    background: var(--color-gray)
+                    box-shadow: none
+                    color: var(--primary-hover)

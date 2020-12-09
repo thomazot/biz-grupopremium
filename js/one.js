@@ -824,7 +824,6 @@ function default_carrossel_produtos() {
                         [568, 2],
                         [768, 3],
                         [1024, 4],
-                        [1270, 5],
                     ],
                     beforeMove: function () {
                         if (typeof $j.fn.lazyload != 'undefined') {
@@ -908,6 +907,7 @@ function default_carrossel_brands() {
     if (marcas.length) {
         marcas.each(function (i, el) {
             $j(el).owlCarousel({
+                items: 4,
                 itemsScaleUp: true,
                 navigation: true,
                 navigationText: ['?', '?'],
@@ -1235,7 +1235,7 @@ $j.fn.neonTheme.custom = {
     m_search: true, // ativa o responsivo da Busca
     m_filters: true, // ativa o responsivo dos Filtros do Catálogo
     m_myaccount: true, // ativa o responsivo da Minha Conta
-    m_mycart: true, // ativa o responsivo do Meu Carrinho
+    m_mycart: false, // ativa o responsivo do Meu Carrinho
     m_parcelamento: true, // ativa o responsivo do parcelamento na página de produto
     m_frete: true, // ativa o responsivo do cálculo de frete na página do produto
     m_produto: true, // ativa o responsivo de cada bloco da página de produto
@@ -1345,13 +1345,15 @@ function scrollTop() {
 
 function categoriesTitle() {
     const items = Array.from(
-        document.querySelectorAll('.header-container .categories .li--0')
+        document.querySelectorAll(
+            '.header-container .categories__all .all-li--0'
+        )
     )
     items.forEach((item) => {
         const title =
-            item.querySelector('.a--0') &&
-            item.querySelector('.a--0').textContent.trim()
-        const child = item.querySelector('.box--1')
+            item.querySelector('.all-a--0') &&
+            item.querySelector('.all-a--0').textContent.trim()
+        const child = item.querySelector('.ul--1')
 
         child.setAttribute('data-title', title)
     })
@@ -1425,6 +1427,60 @@ function createRootVariableRGB() {
     })
 }
 
+function adjustMenuPrincipal($) {
+    if ($('.header-container .categories')) {
+        const liAll = $(
+            '.header-container .categories .ul--0:nth-child(2) .li--0:not(.categories__all)'
+        )
+            .removeClass('li--0')
+            .addClass('all-li--0')
+
+        if (liAll.length) {
+            liAll.find('.a--0').removeClass('a--0').addClass('all-a--0')
+            liAll.find('.a--1').removeClass('a--1').addClass('all-a--1')
+            liAll.find('.box--1').removeClass('box--1').addClass('box--2')
+            $('.header-container .categories .all-li--0').remove()
+            $('.header-container .categories .all-ul--0').append(liAll)
+        }
+    }
+
+    const menu = $('.header-container .categories .ul--0')
+
+    if (menu.length) {
+        const customMenu = $('.header-container .mymenu .ul--0')
+
+        if (customMenu) {
+            const li = $('<li>').addClass('categories__custom')
+            menu.append(li.append(customMenu))
+        }
+    }
+}
+
+function autoSizeMenuCuston($) {
+    const adjust = () => {
+        const container = $('.categories__custom')
+        const size = container.outerWidth()
+        let sizeAll = 0
+
+        $('.li--0', container).removeClass('categories--remove')
+
+        $('.li--0', container).each(function () {
+            const sizeLi = $(this).outerWidth()
+            sizeAll += sizeLi
+
+            if (sizeAll > size) {
+                $(this).addClass('categories--remove')
+            }
+        })
+    }
+
+    adjust()
+
+    $(window).resize(function () {
+        adjust()
+    })
+}
+
 $j(document)
     .ready(function ($) {
         // document.ready
@@ -1433,8 +1489,15 @@ $j(document)
 
         // Scrolling
         scrollTop()
+
+        // Ajuste menu principal
+        adjustMenuPrincipal($)
+
         // Categories title
         categoriesTitle()
+
+        // auto ajuste menu header
+        autoSizeMenuCuston($)
 
         // Menu Categories
         $('.categories .parent').click(function (event) {
