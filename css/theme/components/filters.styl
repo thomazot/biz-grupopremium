@@ -1,0 +1,45 @@
+.filters
+    > .title
+        @media media-min-lg
+            display: flex
+            justify-content: flex-start
+            align-items: center
+            margin-bottom: 0
+            padding: 0 (gap / 2)
+            min-height: 40px
+            background: var(--color-gray)
+            box-shadow: 0 0 0 1px var(--color-border)
+            color: var(--primary)
+            text-transform: uppercase
+            font-weight: bold
+            font-size: 13px
+
+    &__filter
+        @media media-min-lg
+            overflow: hidden
+            background: white
+            box-shadow: 0 0 0 1px var(--color-border)
+
+        &:not(:last-child)
+            @media media-min-lg
+                margin-bottom: 0
+
+        .a--0, .a--0current, .count, .link
+            font-weight: regular
+            font-size: 13px
+
+            @media media-max-lg
+                color: var(--primary-contrast)
+
+            @media media-min-lg
+                color: var(--color-text-gray)
+
+    &__name
+        font-weight: bold
+        font-size: 16px
+
+        @media media-max-lg
+            color: var(--primary-contrast)
+
+        @media media-min-lg
+            color: var(--primary)

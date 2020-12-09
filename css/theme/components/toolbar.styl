@@ -1,0 +1,60 @@
+.toolbar
+    .limiter
+        display: none
+
+    .amount
+        opacity: 1
+
+        &, span
+            color: var(--color-text)
+            font-weight: regular
+            font-size: 13px
+
+    .sort-by
+        order: -1
+        color: var(--color-text)
+        font-weight: regular
+        font-size: 13px
+
+        &:before
+            margin-right: 5px
+            content: 'Classificar por: '
+
+        label
+            display: none
+
+        select
+            border: solid 1px var(--color-border)
+            box-shadow: none
+            color: var(--color-text)
+            font-weight: regular
+            font-size: 13px
+
+    .view-mode
+        margin-left: (gap / 2)
+
+        svg
+            margin-right: 5px
+            width: 15px
+            height: 12px
+            opacity: 1
+            fill: currentColor !important
+
+        .grid, .list
+            color: var(--color-text)
+
+            &:after
+                font-weight: regular
+                font-size: 13px
+
+        strong
+            &.grid, &.list
+                color: var(--primary)
+
+        .grid
+            &:after
+                content: 'Grid'
+
+        .list
+            &:after
+                content: 'Lista'
