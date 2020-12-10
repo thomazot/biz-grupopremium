@@ -1237,7 +1237,7 @@ $j.fn.neonTheme.custom = {
     m_myaccount: true, // ativa o responsivo da Minha Conta
     m_mycart: false, // ativa o responsivo do Meu Carrinho
     m_parcelamento: true, // ativa o responsivo do parcelamento na página de produto
-    m_frete: true, // ativa o responsivo do cálculo de frete na página do produto
+    m_frete: false, // ativa o responsivo do cálculo de frete na página do produto
     m_produto: true, // ativa o responsivo de cada bloco da página de produto
     m_tabs: true, // ativa o responsivo do componente .tabs do tema
     m_painelCliente: true, // ativa o responsivo do Menu do Painel de Cliente
@@ -1245,13 +1245,7 @@ $j.fn.neonTheme.custom = {
      * Funcionalidades do Tema
      */
     dropFrom: false,
-    addSVG: {
-        'img-truck': {
-            selector: '.frete .frete__content .input-box label',
-            mode: 'prepend',
-            ratio: false,
-        },
-    },
+    addSVG: {},
 }
 
 /**
@@ -1481,6 +1475,52 @@ function autoSizeMenuCuston($) {
     })
 }
 
+function isInViewport(el) {
+    const rect = el.getBoundingClientRect()
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <=
+            (window.innerWidth || document.documentElement.clientWidth)
+    )
+}
+
+function productCallToActionViewport() {
+    const box = document.querySelector('.prod__shop .add-to-cart')
+    const body = document.querySelector('body')
+    const check = () => {
+        if (!box) return
+
+        if (isInViewport(box)) {
+            body.classList.remove('is-hide-call-to-action')
+        } else {
+            body.classList.add('is-hide-call-to-action')
+        }
+    }
+
+    check()
+
+    document.addEventListener('scroll', check, {
+        passive: true,
+    })
+}
+
+function joinsaleAdjuste($) {
+    $('.jointsales__row').each(function () {
+        const essential = $('<div class="jointsales__essential"></div>')
+        const currentName = $('.jointsales__currentin .title').text()
+
+        $(
+            '.jointsales__totals, .jointsales__payments, .jointsales__action',
+            this
+        ).wrapAll(essential)
+
+        $(this).addClass('on')
+    })
+}
+
 $j(document)
     .ready(function ($) {
         // document.ready
@@ -1499,12 +1539,44 @@ $j(document)
         // auto ajuste menu header
         autoSizeMenuCuston($)
 
+        // Produto exibe o botao comprar no viewport
+        productCallToActionViewport($)
+
+        // CompreJunto ajuste
+        joinsaleAdjuste($)
+
         // Menu Categories
         $('.categories .parent').click(function (event) {
             if ($(event.target).hasClass('parent')) {
                 $(event.target).toggleClass('on')
             }
         })
+
+        addSVG({
+            'z-heart': {
+                selector: '.add-to-links .link-wishlist a',
+                mode: 'prepend',
+            },
+            'z-comparar': {
+                selector: '.add-to-links .link-compare a',
+                mode: 'prepend',
+            },
+        })
+
+        // parcelamento na pagina de produto
+        $('.prod__payments-link').click(function (event) {
+            event.preventDefault()
+            $(this).toggleClass('on')
+        })
+
+        const sharing = $('.prod__img .sharing-links')
+
+        if (sharing.length) {
+            const breadcrumb = $('.breadcrumb')
+            if (breadcrumb.length) {
+                breadcrumb.append(sharing)
+            }
+        }
     })
     .on('resizeStop', function (e) {
         // Safe window.resize

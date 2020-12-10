@@ -1,0 +1,186 @@
+.catalog-product-view
+    .main-container
+        overflow: hidden
+        width: 100%
+
+.prod
+    &__fixed
+        position: fixed
+        right: 0
+        z-index: 100
+        visibility: hidden
+        padding: 20px
+        max-width: 100%
+        width: 300px
+        border: solid 1px var(--color-border)
+        background: white
+        transition: all .4s ease-in-out
+        transition-delay: .1s
+        transform: translateX(100%)
+
+        @media media-max-lg
+            display: none
+
+        .is-hide-call-to-action &
+            visibility: visible
+            transform: translateX(0)
+
+    &__name
+        h1, h2
+            color: var(--primary)
+            font-weight: bold
+            font-size: 20px
+            line-height: 1
+
+        h2
+            margin-bottom: (gap / 2)
+
+    &__infos
+        margin: 10px 0
+        padding: 10px 0
+        border-top: solid 1px var(--color-border)
+        border-bottom: solid 1px var(--color-border)
+
+        @media media-min-sm
+            display: flex
+            justify-content: space-between
+            align-items: flex-start
+
+        .brand a, .sku
+            color: var(--color-text)
+            font-weight: regular
+            font-size: 14px
+
+        .brand
+            padding-top: 0
+
+            .thumb
+                display: none
+
+            a
+                opacity: 1
+
+                &:before
+                    content: 'Marca: '
+
+                &:after
+                    content: attr(title)
+
+    &__content, &__links
+        flex: 0 0 auto
+        min-width: 0
+
+    &__payments
+        margin-bottom: 20px
+
+        &-link
+            color: var(--color-text-gray)
+            text-decoration: underline
+            font-weight: bold
+            font-size: 13px
+
+    &__img
+        .sharing-links
+            display: none
+
+.add-to-cart-buttons
+    display: flex
+
+    .qty-wrapper
+        flex: 0 0 65px
+        margin-right: (gap / 2)
+
+    .add-to-cart-btn
+        display: flex
+        flex: 1
+        justify-content: center
+        align-items: center
+        padding: 0
+        min-width: 0
+        height: 43px
+        text-transform: uppercase
+        font-weight: bold
+        font-size: 15px
+        line-height: 1
+
+.parcelamento
+    display: none
+
+    .prod__payments-link.on + &
+        display: block
+
+    ul
+        display: block
+        padding: 20px 0
+
+    li
+        display: block
+        padding: 2px 0
+        border: 0
+        color: var(--color-text-gray)
+        font-size: 12px
+        break-inside: avoid
+
+    .s-juros, .c-juros, .juros
+        display: block
+        padding: 0
+        background: none
+        color: var(--secundary)
+        text-align: left
+        font-style: normal
+
+@media media-min-lg
+    .prod
+        &__img
+            flex: 1
+            margin-right: gap
+            min-width: 0
+
+        &__shop
+            flex: 0 1 490px
+            min-width: 0
+
+    .product-image-container
+        display: flex
+        width: 100%
+
+    .product-image
+        flex: 1
+        min-width: 0
+
+    .more-views
+        flex: 0 1 120px
+        order: -1
+        margin-right: 20px
+
+    .product-image-thumbs
+        display: block
+
+        img
+            width: 120px
+            height: 120px
+            object-fit: contain
+
+    .product-image-gallery
+        height: 510px
+
+        img
+            width: 100%
+            height: 510px
+            object-fit: contain
+
+    .tabs__tab.on
+        color: var(--primary)
+        text-transform: uppercase
+        font-weight: bold
+        font-size: 18px
+
+@media media-max-sm
+    .product-collateral
+        margin-top: 20px
+
+    .tabs__tab.on
+        margin: 0 !important
+        color: var(--primary)
+        font-weight: regular
+        font-size: 14px
