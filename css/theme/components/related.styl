@@ -1,0 +1,17 @@
+.related
+    @media media-max-sm
+        container()
+
+    @media media-min-sm
+        &__title, &__content
+            container()
+
+    &__subtitle, &__add-checkbox
+        display: none
+
+    &__title, &__content
+        @media media-min-sm
+            container()
+
+    &__title
+        titleCollateral()

@@ -1,0 +1,67 @@
+<div class="prod__img">
+    @fotos
+    @compartilhar
+    @selos
+</div>
+<div class="prod__shop">	
+    <div class="col">
+        <div class="prod__header">
+            <div class="prod__name">
+                <h1>@nome</h1>
+            </div>
+            <div class="prod__infos">
+                <div class="prod__content">
+                    @marca
+                    <small class="sku">SKU: @atributo(sku)</small>
+                </div>
+                <div class="prod__links">@links</div>
+            </div>
+        </div>
+
+		@if(is_disponivel)
+            @variacoes
+            <div class="prod__prices">
+                @preco
+                @preco(avista)
+                @preco(parcelado)	
+
+                <div class="prod__payments">
+                    <a class="prod__payments-link" href="#">ver parcelamento</a>
+                    @parcelamento
+                </div>
+            </div>
+            @bt(comprar)
+            @simulador-frete
+		@else(is_disponivel)		
+			<div class="prod__esgotado">
+				<div class="title title--sm">Produto indisponível</div>
+				@alertas
+			</div>
+		@endif(is_disponivel)
+		
+    </div>
+</div>
+
+<div class="prod__fixed">
+    <div class="prod__fixed-container">
+        <div class="prod__name">
+			<h2>@nome</h2>
+		</div>
+        @if(is_disponivel)
+        <div class="prod__prices">
+			@preco
+            @preco(avista)
+			@preco(parcelado)	
+        </div>
+
+        <div class="prod__call-to-actions">
+            @bt(comprar)
+        </div>
+		@else(is_disponivel)		
+			<div class="prod__esgotado">
+				<div class="title title--sm">Produto Esgotado</div>
+				@alertas
+			</div>
+		@endif(is_disponivel)
+    </div>
+</div>

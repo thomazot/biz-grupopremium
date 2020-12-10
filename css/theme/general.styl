@@ -62,3 +62,19 @@ shadowBorder()
 
     @media media-max-lg
         box-shadow: 300px 0 0 @background, -300px 0 0 @background
+
+titleCollateral()
+    color: var(--primary)
+
+    @media media-max-sm
+        font-weight: regular
+        font-size: 14px
+
+    @media media-min-sm
+        margin: (gap / 2) 0
+        padding: (gap / 2) 0
+        border-bottom: solid 1px var(--color-border)
+        text-align: left
+        text-transform: uppercase
+        font-weight: bold
+        font-size: 24px

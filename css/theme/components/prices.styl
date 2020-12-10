@@ -2,6 +2,21 @@
     .products__main &
         display: none
 
+    .prod__shop &, .prod__fixed &
+        .label
+            display: none
+
+        .price
+            text-decoration: none
+
+            span
+                color: var(--color-text)
+                text-decoration: line-through
+                font-size: 13px
+
+.price-box
+    margin-bottom: 5px
+
 .regular-price, .special-price, .minimal-price
     .products__main &
         .label
@@ -11,3 +26,34 @@
             color: var(--secundary)
             font-weight: bold
             font-size: 20px
+
+    .prod__shop &, .prod__fixed &
+        .label
+            display: none
+
+        .price span
+            color: var(--secundary)
+            font-weight: bold
+            font-size: 24px
+
+.price-box-avista
+    margin-bottom: 0 !important
+
+    .label, .price
+        span
+            color: var(--color-text-gray)
+            font-weight: regular
+            font-size: 14px !important
+
+.price-box-parcelado
+    .prod__shop &
+        margin-bottom: 5px
+
+    .preco-parcelado-sem-juros
+        + .preco-parcelado
+            display: none
+
+    &, .upto span, .de span, .num span, .value span, .s-juros span, .c-juros span, .juros span
+        color: var(--color-text-gray)
+        font-weight: regular
+        font-size: 14px !important
