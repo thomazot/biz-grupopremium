@@ -1,0 +1,21 @@
+{{widget type="banner/widget_banner" template="banner/banner.phtml" banner="banner-intelbras"}}
+{{widget type="interface/widget_scripts" template="interface/widgets/scripts.phtml" script_id="intelbras-sobre-nos"}}
+{{widget type="interface/widget_produtos" template="interface/widgets/produtos.phtml" title="Conheça os produtos Intelbras" identificador="productsintelbras" limite="12" exibir_sem_estoque="1" exibir_sem_imagem="1" markup="<h2 class='products__header'>
+    <a href='@url' itemprop='url' title='Mais detalhes' class='product-link'>
+        <span class='products__image product-image'>@foto(260x260)</span>
+    </a>
+    @selos
+</h2>
+<div class='products__main'>
+	@if(is_disponivel)
+        <a href='@url' title='@nome(60)' class='products__name'>@nome</a>
+		@preco
+        <div class='products__login'>
+            <a href='/customer/account/login/'>Entre ou cadastre-se</a> 
+            para ver o preço e comprar!
+        </div>
+    @else(is_disponivel)
+        <div class='products__out'>Produto Esgotado</div>
+        <div class='products__alert'>Avise-me quando chegar</div>
+	@endif(is_disponivel)
+</div>"}}
