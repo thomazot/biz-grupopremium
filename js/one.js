@@ -1561,6 +1561,10 @@ $j(document)
                 selector: '.add-to-links .link-compare a',
                 mode: 'prepend',
             },
+            'z-trash': {
+                selector: '.cart-table .btn-remove',
+                mode: 'html',
+            },
         })
 
         // parcelamento na pagina de produto
@@ -1589,4 +1593,10 @@ $j(document)
     .on('ajaxComplete', function (resp) {
         // Safe ajax completed
         // Dispara apÃ³s completar com sucesso qualquer requisiÃ§Ã£o Ajax, e trÃ¡s a resposta do Ajax.
+        addSVG({
+            'z-trash': {
+                selector: '.cart-table .btn-remove',
+                mode: 'html',
+            },
+        })
     })
