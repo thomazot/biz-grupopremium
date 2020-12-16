@@ -4,6 +4,61 @@
         width: 100%
 
 .prod
+    &__logout
+        display: none
+
+        .user-logged &
+            display: block
+
+    &__login
+        display: none
+        margin: (gap / 2) 0
+        padding: gap
+        border: solid 1px var(--color-border)
+        background: var(--color-gray)
+        text-align: center
+
+        body:not(.user-logged) &
+            display: block
+
+        a
+            display: flex
+            justify-content: center
+            align-items: center
+            width: 150px
+            height: 40px
+            border-radius: var(--radius)
+            background: var(--secundary)
+            color: var(--secundary-contrast)
+            text-transform: uppercase
+            font-weight: bold
+            font-size: 12px
+
+            @media media-min-lg
+                font-size: 15px
+
+    &__actions
+        display: flex
+        justify-content: center
+        align-items: center
+
+        span
+            padding: 0 (gap / 2)
+            color: var(--color-text-gray)
+            font-weight: semibold
+            font-size: 15px
+
+    &__text
+        margin-bottom: (gap / 2)
+        color: var(--color-text-gray)
+        font-weight: semibold
+        font-size: 15px
+
+        &--small
+            margin: 0 auto (gap / 2)
+            max-width: 100%
+            width: 250px
+
     &__fixed
         position: fixed
         right: 0
@@ -26,7 +81,10 @@
             transform: translateX(0)
 
     &__name
-        h1, h2
+        .prod__login &
+            padding-bottom: 5px
+
+        h1, h2, .prod__login &
             color: var(--primary)
             font-weight: bold
             font-size: 20px
